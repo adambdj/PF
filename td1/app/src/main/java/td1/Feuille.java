@@ -51,6 +51,6 @@ public class Feuille implements Arbre
     @Override
     public boolean estTrie()
     {
-        return true;
+        return true; /*une feuille est toujours triée */
     }
 }
