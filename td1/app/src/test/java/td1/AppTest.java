@@ -11,10 +11,6 @@ import java.util.List;
 import java.util.Set;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
-    }
 
     public static final Arbre arbre0() {
         return new Noeud(new ArrayList<Arbre>());
