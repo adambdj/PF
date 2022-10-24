@@ -52,8 +52,18 @@ public class App {
             });
             return builder.toString();
         };
-        
+
         System.out.println(toStringMap.show(hm));
+
+        // exercice 1 Question 3 : 
+
+        // Function: Convertie (map) un type vers un autre. Lambda avec une variable
+
+        // Predicate: Tests l’argument selon un critère et renvoie vrai ou faux. Stockage Lambda expression : signature (T) -> boolean
+
+        // Consumer: Consume une entrée et ne retourne rien. Stockage Lambda expression : signature (T) -> void
+
+        // Supplier: Générer une sortie, Stockage Lambda expression : signature () -> T
 
     }
 
