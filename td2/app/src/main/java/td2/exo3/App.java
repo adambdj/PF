@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import td2.exo3.Etudiant;
 
 public class App<T>
 {
@@ -31,6 +32,8 @@ public class App<T>
     e3.noter(m1, 18.0);
     e3.noter(m2, 5.0);
     e3.noter(m3, 14.0);
+
+
 
     public static void main(String[] args)
     {
