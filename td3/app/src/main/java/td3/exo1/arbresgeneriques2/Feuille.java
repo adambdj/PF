@@ -1,6 +1,8 @@
-package td1.arbresgeneriques2;
+package td3.exo1.arbresgeneriques2;
 
 import java.util.Set;
+import td3.exo1.arbresgeneriques2.Sommable;
+
 
 public class Feuille<T extends Sommable<T> & Comparable<T>> implements Arbre<T> {
 

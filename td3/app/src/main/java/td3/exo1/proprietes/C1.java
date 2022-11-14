@@ -1,4 +1,4 @@
-package td1.proprietes;
+package td3.exo1.proprietes;
 
 public class C1 {
 

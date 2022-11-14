@@ -1,4 +1,6 @@
-package td1.arbresgeneriques2;
+package td3.exo1.arbresgeneriques2;
+import td3.exo1.arbresgeneriques2.Sommable;
+
 
 public class Entier implements Sommable<Entier>, Comparable<Entier> {
     private Integer valeur;
@@ -30,9 +32,11 @@ public class Entier implements Sommable<Entier>, Comparable<Entier> {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null) return false;
-        if (!(o instanceof Entier)) return false;
-        return this.valeur == ((Entier)o).valeur;
+        if (o == null)
+            return false;
+        if (!(o instanceof Entier))
+            return false;
+        return this.valeur == ((Entier) o).valeur;
     }
 
     @Override

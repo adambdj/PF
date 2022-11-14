@@ -1,4 +1,4 @@
-package td1.commandes;
+package td3.exo1.commandes;
 
 public enum Categorie {
     NORMAL, INTERMEDIAIRE, REDUIT, PARTICULIER;

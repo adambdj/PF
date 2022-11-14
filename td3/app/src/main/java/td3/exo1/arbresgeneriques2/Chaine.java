@@ -1,4 +1,5 @@
-package td1.arbresgeneriques2;
+package td3.exo1.arbresgeneriques2;
+import td3.exo1.arbresgeneriques2.Sommable;
 
 public class Chaine implements Sommable<Chaine>, Comparable<Chaine> {
     
@@ -31,9 +32,11 @@ public class Chaine implements Sommable<Chaine>, Comparable<Chaine> {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null) return false;
-        if (!(o instanceof Chaine)) return false;
-        return this.valeur == ((Chaine)o).valeur;
+        if (o == null)
+            return false;
+        if (!(o instanceof Chaine))
+            return false;
+        return this.valeur == ((Chaine) o).valeur;
     }
 
     @Override

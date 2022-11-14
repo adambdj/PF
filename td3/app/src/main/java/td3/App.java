@@ -3,7 +3,18 @@
  */
 package td3;
 
+import td3.exo1.paires.IPaire;
+import td3.exo1.paires.Paire;
+import td3.exo1.arbresgeneriques2.Entier;
+import td3.exo1.commandes.Categorie;
+import td3.exo1.commandes.Commande;
+import java.util.List;
+import td3.exo1.commandes.DAO;
+import td3.exo1.commandes.Produit;
+import td3.exo1.arbresgeneriques2.Chaine;
+
 public class App {
+    
     public String getGreeting() {
         return "Hello World!";
     }

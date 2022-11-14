@@ -1,13 +1,14 @@
-package td1.commandes;
+package td3.exo1.commandes;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.ArrayList;
 
-import static td1.commandes.Categorie.*;
-import td1.paires.Paire;
+import static td3.exo1.commandes.Categorie.*;
+import td3.exo1.paires.Paire;
 
 public class DAO {
     private List<Commande> commandes;
