@@ -11,10 +11,10 @@ import java.util.Map.Entry;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-import td2.universite.Annee;
-import td2.universite.Etudiant;
-import td2.universite.Matiere;
-import td2.universite.UE;
+import td3.exo2.universite.Annee;
+import td3.exo2.universite.Etudiant;
+import td3.exo2.universite.Matiere;
+import td3.exo2.universite.UE;
 
 public class App {
 
