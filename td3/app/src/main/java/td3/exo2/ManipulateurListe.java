@@ -1,4 +1,4 @@
-package td2;
+package td3.exo2;
 
 import java.util.ArrayList;
 import java.util.List;

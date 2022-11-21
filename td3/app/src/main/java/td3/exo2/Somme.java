@@ -1,4 +1,4 @@
-package td2;
+package td3.exo2;
 
 @FunctionalInterface
 public interface Somme<T> {

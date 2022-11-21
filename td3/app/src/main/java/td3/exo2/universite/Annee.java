@@ -1,4 +1,4 @@
-package td2.universite;
+package td3.exo2.universite;
 
 import java.util.HashSet;
 import java.util.Set;
