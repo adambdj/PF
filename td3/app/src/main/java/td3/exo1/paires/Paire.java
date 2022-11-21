@@ -1,8 +1,8 @@
 package td3.exo1.paires;
 
 public class Paire<A,B> implements IPaire<A,B> {
-    private A _fst;
-    private B _snd;
+    public A _fst;
+    public B _snd;
 
     public Paire(final A fst, final B snd) {
         _fst = fst;

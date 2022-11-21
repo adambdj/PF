@@ -1,9 +1,10 @@
 package td3.exo2.universite;
 
-import td3.exo2.App;
+import td3.exo1.paires.Paire;
 
+import td3.exo2.App;
 import java.util.List;
-import java.util.Map;
+import java.util.Map.*;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -14,26 +15,32 @@ import static td3.exo2.App.aDEF;
 public class Refactoring
 {
     // matières d'une année
-    public static final Function < Annee, Stream < Matiere >> matieresA = ???
+    public static final Function < Annee, Stream < Matiere >> matieresA = a ->
+            a.ues().stream().flatMap(e -> e.ects().keySet().stream());
 
     // matières d'un étudiant
-    public static final Function < Etudiant, Stream < Matiere >> matieresE = ???
+    public static final Function < Etudiant, Stream < Matiere >> matieresE = e ->
+            e.notes().keySet().stream();
 
     // matières coefficientées d'un étudiant (version Entry)
-    public static final Function < Etudiant, Stream < Entry < Matiere, Integer >>> matieresCoefE_ = ???
+    public static final Function < Etudiant, Stream < Entry < Matiere, Integer >>> matieresCoefE_ = e ->
+            e.annee().ues().stream().flatMap(f -> f.ects().entrySet().stream());
 
     // transformation d'une Entry en une Paire
-    public static final Function < Entry < Matiere, Integer > , Paire < Matiere, Integer >> entry2paire = ???
+    public static final Function < Entry < Matiere, Integer > , Paire< Matiere, Integer >> entry2paire = e ->
+            new Paire<>(e.getKey(), e.getValue());
 
     // matières coefficientées d'un étudiant (version Paire)
-    public static final Function < Etudiant, Stream < Paire < Matiere, Integer >>> matieresCoefE = ???
+    public static final Function < Etudiant, Stream < Paire < Matiere, Integer >>> matieresCoefE = e ->
+            matieresCoefE_.apply(e).map(entry2paire);
 
     // accumulateur pour calcul de la moyenne
     // ((asomme, acoefs), (note, coef)) -> (asomme+note*coef, acoef+coef)
-    public static final BinaryOperator < Paire < Double, Integer >> accumulateurMoyenne = ???
+    public static final BinaryOperator < Paire < Double, Integer >> accumulateurMoyenne = (a, b) ->
+            new Paire<>(a._fst + b._fst * b._snd, a._snd+ b._snd);
 
     // zero (valeur initiale pour l'accumulateur)
-    public static final Paire < Double, Integer > zero = ???
+    public static final Paire < Double, Integer > zero = new Paire<>(0.0,0);
 
     // obtention de la liste de (note, coef) pour les matières d'un étudiant
     // 1. obtenir les (matière, coef)s
