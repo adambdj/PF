@@ -21,5 +21,30 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+
+        Paire<Integer, String> pair1 = new Paire<>(95100, "chainecaractere");
+
+        System.out.println("-------------------");
+        System.out.println(pair1.fst());
+        System.out.println(pair1.snd());
+        System.out.println(pair1);
+        System.out.println("-------------------");
+        Paire newPaireFst = pair1.changeFst(10.0);
+
+        System.out.println(newPaireFst.fst());
+        System.out.println(newPaireFst.snd());
+        System.out.println(newPaireFst);
+        System.out.println("-------------------");
+        Paire newPaireSnd = newPaireFst.changeSnd(1f);
+
+        System.out.println(newPaireSnd.fst());
+        System.out.println(newPaireSnd.snd());
+        System.out.println(newPaireSnd);
+
+        System.out.println("-------------------");
+        Paire<String, Paire> paireComposee = new Paire<>("Hello", pair1);
+
+        System.out.println(paireComposee);
+        
     }
 }
