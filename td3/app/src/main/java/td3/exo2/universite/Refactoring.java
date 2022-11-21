@@ -45,33 +45,52 @@ public class Refactoring
     // obtention de la liste de (note, coef) pour les matières d'un étudiant
     // 1. obtenir les (matière, coef)s
     // 2. mapper pour obtenir les (note, coef)s, null pour la note si l'étudiant est DEF dans cette matière
-    public static final Function < Etudiant, List < Paire < Double, Integer >>>notesPonderees = ?? ?
+    public static final Function < Etudiant, List < Paire < Double, Integer >>>notesPonderees = e ->
+            matieresCoefE.apply(e).map(p -> new Paire<>(e.notes().get(p._fst),p._snd)).collect(Collectors.toList());
+
 
     // obtention de la liste de (note, coef) pour les matières d'un étudiant
     // 1. obtenir les (matière, coef)s
     // 2. mapper pour obtenir les (note, coef)s, 0.0 pour la note si l'étudiant est DEF dans cette matière
-    public static final Function < Etudiant, List < Paire < Double, Integer >>>notesPondereesIndicatives = ???
+    public static final Function < Etudiant, List < Paire < Double, Integer >>>notesPondereesIndicatives = l ->
+            matieresCoefE.apply(l)
+            .map(p-> {
+                if (p._fst != null)
+                {
+                    return new Paire<>(l.notes().get(p._fst), p._snd);
+                }
+
+                else return new Paire<>(0.0, p._snd);
+            }).collect(Collectors.toList());
+
 
     // replie avec l'accumulateur spécifique
-    public static final Function < List < Paire < Double, Integer >> , Paire < Double, Integer >>reduit = ???
+    public static final Function < List < Paire < Double, Integer >> , Paire < Double, Integer >>reduit = l ->
+            l.stream().reduce(zero,accumulateurMoyenne);
+
 
     // calcule la moyenne à partir d'un couple (somme pondérée, somme coefs)
-    public static final Function < Paire < Double, Integer > , Double > divise = ???
+    public static final Function < Paire < Double, Integer > , Double > divise = p ->
+            p._fst/ p._snd;
 
     // calcul de moyenne fonctionnel
     // composer notesPonderees, reduit et divise
     // exception en cas de matière DEF
-    public static final Function < Etudiant, Double > computeMoyenne = ???
+    public static final Function < Etudiant, Double > computeMoyenne = e ->
+            notesPonderees.andThen(reduit).andThen(divise).apply(e);
+
 
     // calcul de moyenne fonctionnel
     // composer notesPondereesIndicatives, reduit et divise
     // pas d'exception en cas de matière DEF
-    public static final Function < Etudiant, Double > computeMoyenneIndicative = ???
+    public static final Function < Etudiant, Double > computeMoyenneIndicative = e ->
+            notesPondereesIndicatives.andThen(reduit).andThen(divise).apply(e);
+
 
     // calcul de moyenne
     public static final Function < Etudiant, Double > moyenne = e -> (e == null || aDEF.test(e)) ? null : computeMoyenne.apply(e);
 
     // calcul de moyenne indicative
-    public static final Function < Etudiant, Double > moyenneIndicative = computeMoyenneIndicative
+    public static final Function < Etudiant, Double > moyenneIndicative = computeMoyenneIndicative;
 
 }
