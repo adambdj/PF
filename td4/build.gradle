@@ -26,9 +26,9 @@ dependencies {
 }
 
 application {
-    // mainClassName = 'promowarn.version1.App' // à tester
-    // mainClassName = 'promowarn.version2.App' // à tester
-    mainClassName = 'promowarn.version3.App' // à réaliser
+    //mainClassName = 'promowarn.version1.App' // à tester
+    mainClassName = 'promowarn.version2.App' // à tester
+    //mainClassName = 'promowarn.version3.App' // à réaliser
 }
 
 tasks.withType(JavaCompile) {
