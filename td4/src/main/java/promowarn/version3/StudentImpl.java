@@ -1,13 +1,15 @@
 package promowarn.version3;
 
-import java.util.Objects;
-
 import promowarn.common.mail.EMailAddress;
+
+import java.util.Objects;
+import java.util.Optional;
 
 public class StudentImpl implements Student {
     private final Integer id;
     private final EMailAddress email;
-    private Double grade;
+
+    private Optional grade;
 
     public StudentImpl(final Integer id, final String email) {
         this.id = id;
@@ -26,12 +28,12 @@ public class StudentImpl implements Student {
     }
 
     @Override
-    public Double grade() {
+    public Optional grade(int i) {
         return grade;
     }
 
     @Override
-    public void grade(final double grade) {
+    public void grade(final Optional grade) {
         this.grade = grade;
     }
 
